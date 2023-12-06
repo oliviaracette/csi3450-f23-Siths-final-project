@@ -44,7 +44,7 @@
 
     // Inserting values from html into database, using $stmt as a form of sanitization
     //this code will break if you enter things that break constraints, but the scope of it is not meant to be huge, just a demonstration
-    $sql = "INSERT INTO OPENING (COMP_ID, REQ_QUAL_ID, START_DATE, ANTICIPATED_END_DATE, HOURLY_PAY) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO OPENING (COMP_ID, QUAL_ID, START_DATE, END_DATE, HOURLY_PAY) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     if ($stmt) {
         $stmt->bind_param("iissd", $compId, $reqQualId, $startDate, $anticipatedEndDate, $hourlyPay);
