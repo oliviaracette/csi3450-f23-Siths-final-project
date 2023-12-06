@@ -15,28 +15,27 @@
             margin: 0 auto;
         }
 
-            .form-container p {
+        .form-container p {
                 margin-bottom: 10px;
-            }
+        }
 
-            .form-container input[type="text"],
-            .form-container input[type="submit"] {
+        .form-container input[type="text"], .form-container input[type="submit"] {
                 padding: 8px;
                 margin-bottom: 15px;
                 width: 100%;
                 box-sizing: border-box;
-            }
+        }
 
-            .form-container input[type="submit"] {
+        .form-container input[type="submit"] {
                 background-color: #4CAF50;
                 color: white;
                 border: none;
                 cursor: pointer;
-            }
+        }
 
-                .form-container input[type="submit"]:hover {
+        .form-container input[type="submit"]:hover {
                     background-color: #45a049;
-                }
+        }
 
         table {
             border-collapse: collapse;
@@ -51,6 +50,14 @@
 
         th {
             background-color: #f2f2f2;
+        }
+        
+        .enter-info-button {
+            display: block; 
+            width: 200px; 
+            padding: 12px; 
+            font-size: 16px;
+            margin: 20px auto; 
         }
 
     </style>
@@ -131,33 +138,33 @@
             </tbody>
         </table>
 
-        <button onclick="location.href='finalproj2.html'">Enter Company Information</button>
+        <button class="enter-info-button" onclick="location.href='finalproj2.html'">New Company? Enter Company Information</button>
 
-        <form method="get" action="finalproj.php">
-            <p>
-                <label for="COMP_ID">COMP_ID:</label>
-                <input type="text" id="COMP_ID" name="COMP_ID">
-            </p>
-            <p>
-                <label for="REQ_QUAL_ID">REQ_QUAL_ID:</label>
-                <input type="text" id="REQ_QUAL_ID" name="REQ_QUAL_ID">
-            </p>
-            <p>
-                <label for="START_DATE">START_DATE:</label>
-                <input type="text" id="START_DATE" name="START_DATE" placeholder="YYYY-MM-DD">
-            </p>
-            <p>
-                <label for="ANTICIPATED_END_DATE">ANTICIPATED_END_DATE:</label>
-                <input type="text" id="ANTICIPATED_END_DATE" name="ANTICIPATED_END_DATE" placeholder="YYYY-MM-DD">
-            </p>
-            <p>
-                <label for="HOURLY_PAY">HOURLY_PAY:</label>
-                <input type="text" id="HOURLY_PAY" name="HOURLY_PAY">
-            </p>
-            <p>
-                <input type="submit" name="submit" value="Submit">
-            </p>
-        </form>
+    <form method="get" action="finalproj.php">
+        <p>
+            <label for="COMP_ID">COMP_ID:</label>
+            <input type="text" id="COMP_ID" name="COMP_ID">
+        </p>
+        <p>
+            <label for="REQ_QUAL_ID">REQ_QUAL_ID:</label>
+            <input type="text" id="REQ_QUAL_ID" name="REQ_QUAL_ID">
+        </p>
+        <p>
+            <label for="START_DATE">START_DATE:</label>
+            <input type="text" id="START_DATE" name="START_DATE" placeholder="YYYY-MM-DD">
+        </p>
+        <p>
+            <label for="ANTICIPATED_END_DATE">ANTICIPATED_END_DATE:</label>
+            <input type="text" id="ANTICIPATED_END_DATE" name="ANTICIPATED_END_DATE" placeholder="YYYY-MM-DD">
+        </p>
+        <p>
+            <label for="HOURLY_PAY">HOURLY_PAY:</label>
+            <input type="text" id="HOURLY_PAY" name="HOURLY_PAY">
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Submit">
+        </p>
+    </form>
 
     </div>
 </body>

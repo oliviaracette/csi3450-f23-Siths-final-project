@@ -1,84 +1,82 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Submit Opening Details</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 20px;
+    <title>Submit Company Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+            .form-container p {
+                margin-bottom: 10px;
             }
 
-            .form-container {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-                .form-container p {
-                    margin-bottom: 10px;
-                }
-
-                .form-container input[type="text"],
-                .form-container input[type="submit"] {
-                    padding: 8px;
-                    margin-bottom: 15px;
-                    width: 100%;
-                    box-sizing: border-box;
-                }
-
-                .form-container input[type="submit"] {
-                    background-color: #4CAF50;
-                    color: white;
-                    border: none;
-                    cursor: pointer;
-                }
-
-                    .form-container input[type="submit"]:hover {
-                        background-color: #45a049;
-                    }
-
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            th, td {
-                border: 1px solid #ddd;
+            .form-container input[type="text"],
+            .form-container input[type="submit"] {
                 padding: 8px;
-                text-align: left;
+                margin-bottom: 15px;
+                width: 100%;
+                box-sizing: border-box;
             }
 
-            th {
-                background-color: #f2f2f2;
+            .form-container input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
             }
 
-        </style>
-    </head>
-    <body>
-        <div class="form-container">
-            <h2>Enter Company Information</h2>
-            <form method="get" action="finalProj2.php">
-                <p>
-                    <label for="COMP_NAME">Company Name:</label>
-                    <input type="text" id="COMP_NAME" name="COMP_NAME">
-                </p>
-                <p>
-                    <label for="COMP_AREA_CODE">Area Code:</label>
-                    <input type="text" id="COMP_AREA_CODE" name="COMP_AREA_CODE">
-                </p>
-                <p>
-                    <label for="COMP_PHONE_NUMBER">Phone Number:</label>
-                    <input type="text" id="COMP_PHONE_NUMBER" name="COMP_PHONE_NUMBER">
-                </p>
-                <p>
-                    <label for="COMP_EMAIL">Email:</label>
-                    <input type="text" id="COMP_EMAIL" name="COMP_EMAIL">
-                </p>
-                <p>
-                    <input type="submit" name="submit" value="Submit">
-                </p>
-            </form>
-        </div>
-    </body>
+                .form-container input[type="submit"]:hover {
+                    background-color: #45a049;
+                }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enter Company Information</h2>
+        <form method="get" action="finalProj2.php">
+            <p>
+                <label for="COMP_NAME">Company Name:</label>
+                <input type="text" id="COMP_NAME" name="COMP_NAME">
+            </p>
+            <p>
+                <label for="COMP_AREA_CODE">Area Code:</label>
+                <input type="text" id="COMP_AREA_CODE" name="COMP_AREA_CODE">
+            </p>
+            <p>
+                <label for="COMP_PHONE_NUMBER">Phone Number:</label>
+                <input type="text" id="COMP_PHONE_NUMBER" name="COMP_PHONE_NUMBER">
+            </p>
+            <p>
+                <label for="COMP_EMAIL">Email:</label>
+                <input type="text" id="COMP_EMAIL" name="COMP_EMAIL">
+            </p>
+            <p>
+                <input type="submit" name="submit" value="Submit">
+            </p>
+        </form>
+    </div>
+</body>
 </html>
