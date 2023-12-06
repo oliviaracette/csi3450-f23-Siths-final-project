@@ -37,11 +37,102 @@
                 .form-container input[type="submit"]:hover {
                     background-color: #45a049;
                 }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
     </style>
 </head>
 <body>
     <div class="form-container">
         <h2>Enter Opening Details</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>SEC-45</td>
+                    <td>Secretarial work; ca</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SEC-60</td>
+                    <td>Secretarial work; ca</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>CLERK</td>
+                    <td>General clerking wor</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>PRG-PY</td>
+                    <td>Programmer, Python</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>PRG-C++</td>
+                    <td>Programmer, C++</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>DBA-ORA</td>
+                    <td>Database Administrator</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>DBA-DB2</td>
+                    <td>Database Administrator</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>DBA-SQLSERV</td>
+                    <td>Database Administrator</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>SYS-1</td>
+                    <td>Systems Analyst, lev</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>SYS-2</td>
+                    <td>Systems Analyst, lev</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>NW-CIS</td>
+                    <td>Network Administrator</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>WD-CF</td>
+                    <td>Web Developer, ColdF</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="location.href='finalproj2.html'">Enter Company Information</button>
+
         <form method="get" action="finalproj.php">
             <p>
                 <label for="COMP_ID">COMP_ID:</label>
@@ -67,6 +158,7 @@
                 <input type="submit" name="submit" value="Submit">
             </p>
         </form>
+
     </div>
 </body>
 </html>
