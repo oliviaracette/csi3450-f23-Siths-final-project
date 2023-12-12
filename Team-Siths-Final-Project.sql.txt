@@ -1,0 +1,236 @@
+CREATE DATABASE IF NOT EXISTS TEC;
+USE TEC;
+
+CREATE TABLE `candidate` (
+  `CAND_ID` int(3) NOT NULL,
+  `CAND_NAME_FIRST` varchar(20) DEFAULT NULL,
+  `CAND_NAME_LAST` varchar(20) DEFAULT NULL,
+  `CAND_AREA_CODE` int(3) DEFAULT NULL,
+  `CAND_PHONE_NUMBER` int(7) DEFAULT NULL,
+  `CAND_EMAIL` varchar(20) DEFAULT NULL
+);
+
+
+INSERT INTO `candidate` (`CAND_ID`, `CAND_NAME_FIRST`, `CAND_NAME_LAST`, `CAND_AREA_CODE`, `CAND_PHONE_NUMBER`, `CAND_EMAIL`) VALUES
+(1, 'John', 'Doe', '415', '5554321', 'john.doe@example.com'),
+(2, 'Jane', 'Smith', '650', '5558765', 'jane.smith@example.c');
+
+
+CREATE TABLE `candidate_qualifications` (
+  `QUAL_ID` int(4) NOT NULL,
+  `CAND_ID` int(4) NOT NULL
+);
+
+CREATE TABLE `company` (
+  `COMP_ID` int(4) NOT NULL,
+  `COMP_NAME` varchar(20) DEFAULT NULL,
+  `COMP_AREA_CODE` int(3) DEFAULT NULL,
+  `COMP_PHONE_NUMBER` int(7) DEFAULT NULL,
+  `COMP_EMAIL` varchar(20) DEFAULT NULL
+);
+
+
+INSERT INTO `company` (`COMP_ID`, `COMP_NAME`, `COMP_AREA_CODE`, `COMP_PHONE_NUMBER`, `COMP_EMAIL`) VALUES
+(1, 'ABC Corporation', '415', '5551234', 'abc@example.com'),
+(2, 'XYZ Enterprises', '650', '5555678', 'xyz@example.com');
+
+-- --------------------------------------------------------
+
+
+CREATE TABLE `course` (
+  `COURSE_ID` int(4) NOT NULL,
+  `QUAL_ID` int(4) DEFAULT NULL,
+  `COURSE_NAME` varchar(50) DEFAULT NULL
+);
+
+
+
+
+
+
+INSERT INTO `course` (`COURSE_ID`, `QUAL_ID`, `COURSE_NAME`) VALUES
+(1, 1, 'Secretarial Course -'),
+(2, 2, 'Secretarial Course -'),
+(3, 3, 'General Clerking Cou'),
+(4, 4, 'Python Programming C'),
+(5, 5, 'C++ Programming Course'),
+(6, 6, 'Oracle Database Admi'),
+(7, 7, 'IBM DB2 Database Adm'),
+(8, 8, 'MS SQL Server Database'),
+(9, 9, 'Systems Analyst - Le'),
+(10, 10, 'Systems Analyst - Le'),
+(11, 11, 'Network Administrator'),
+(12, 12, 'Web Developer - Cold');
+
+-- --------------------------------------------------------
+
+
+CREATE TABLE `job_history` (
+  `JOB_HIST_ID` int(4) NOT NULL,
+  `CAND_ID` int(3) NOT NULL,
+  `JOB_HIST_DESC` varchar(20) DEFAULT NULL
+);
+
+
+INSERT INTO `job_history` (`JOB_HIST_ID`, `CAND_ID`, `JOB_HIST_DESC`) VALUES
+(1, 1, 'Worked as a secretary'),
+(2, 2, 'Programmed Python ap');
+
+
+CREATE TABLE `opening` (
+  `OPENING_ID` int(4) NOT NULL,
+  `COMP_ID` int(4) NOT NULL,
+  `QUAL_ID` int(4) NOT NULL,
+  `START_DATE` date NOT NULL,
+  `END_DATE` date NOT NULL,
+  `HOURlY_PAY` decimal(5,2) NOT NULL
+);
+
+
+INSERT INTO `opening` (`OPENING_ID`, `COMP_ID`, `QUAL_ID`, `START_DATE`, `END_DATE`, `HOURlY_PAY`) VALUES
+(1, 1, 1, '2023-01-01', '2023-06-30', 25.00),
+(2, 2, 4, '2023-02-15', '2023-08-31', 30.00);
+
+
+CREATE TABLE `placement` (
+  `PLACEMENT_ID` int(4) NOT NULL,
+  `OPENING_ID` int(4) NOT NULL,
+  `CAND_ID` int(3) NOT NULL,
+  `HOURS_WORKED` int(4) DEFAULT 0
+);
+
+
+INSERT INTO `placement` (`PLACEMENT_ID`, `OPENING_ID`, `CAND_ID`, `HOURS_WORKED`) VALUES
+(1, 1, 1, 80),
+(2, 2, 2, 60);
+
+
+CREATE TABLE `qualification` (
+  `QUAL_ID` int(4) NOT NULL,
+  `QUAL_CODE` varchar(20) DEFAULT NULL,
+  `QUAL_DESC` varchar(50) DEFAULT NULL
+);
+
+INSERT INTO `qualification` (`QUAL_ID`, `QUAL_CODE`, `QUAL_DESC`) VALUES
+(1, 'SEC-45', 'Secretarial work; ca'),
+(2, 'SEC-60', 'Secretarial work; ca'),
+(3, 'CLERK', 'General clerking wor'),
+(4, 'PRG-PY', 'Programmer, Python'),
+(5, 'PRG-C++', 'Programmer, C++'),
+(6, 'DBA-ORA', 'Database Administrator'),
+(7, 'DBA-DB2', 'Database Administrator'),
+(8, 'DBA-SQLSERV', 'Database Administrator'),
+(9, 'SYS-1', 'Systems Analyst, lev'),
+(10, 'SYS-2', 'Systems Analyst, lev'),
+(11, 'NW-CIS', 'Network Administrator'),
+(12, 'WD-CF', 'Web Developer, ColdF');
+
+
+CREATE TABLE `session` (
+  `SESSION_ID` int(4) NOT NULL,
+  `COURSE_ID` int(4) NOT NULL,
+  `SESSION_TIME` varchar(5) DEFAULT NULL,
+  `SESSION_START` date DEFAULT NULL,
+  `SESSION_END` date DEFAULT NULL
+);
+
+
+INSERT INTO `session` (`SESSION_ID`, `COURSE_ID`, `SESSION_TIME`, `SESSION_START`, `SESSION_END`) VALUES
+(1, 1, '9:00', '2023-03-01', '2023-03-15'),
+(2, 2, '10:30', '2023-03-05', '2023-03-20'),
+(12, 12, '15:00', '2023-04-01', '2023-04-15');
+
+CREATE TABLE `enrollment` (
+  `SESSION_ID` int(4) NOT NULL,
+  `CAND_ID` int(3) NOT NULL
+);
+
+ALTER TABLE `candidate`
+  ADD PRIMARY KEY (`CAND_ID`);
+
+
+ALTER TABLE `candidate_qualifications`
+  ADD PRIMARY KEY (`QUAL_ID`,`CAND_ID`),
+  ADD KEY `CAND_ID` (`CAND_ID`);
+
+
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`COMP_ID`);
+
+
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`COURSE_ID`),
+  ADD KEY `QUAL_ID` (`QUAL_ID`);
+
+
+ALTER TABLE `job_history`
+  ADD PRIMARY KEY (`JOB_HIST_ID`),
+  ADD KEY `CAND_ID` (`CAND_ID`);
+
+
+ALTER TABLE `opening`
+  ADD PRIMARY KEY (`OPENING_ID`),
+  ADD KEY `COMP_ID` (`COMP_ID`),
+  ADD KEY `QUAL_ID` (`QUAL_ID`);
+
+
+ALTER TABLE `placement`
+  ADD PRIMARY KEY (`PLACEMENT_ID`),
+  ADD KEY `OPENING_ID` (`OPENING_ID`),
+  ADD KEY `CAND_ID` (`CAND_ID`);
+
+ALTER TABLE `qualification`
+  ADD PRIMARY KEY (`QUAL_ID`),
+  ADD UNIQUE KEY `QUAL_CODE` (`QUAL_CODE`);
+
+
+ALTER TABLE `session`
+  ADD PRIMARY KEY (`SESSION_ID`),
+  ADD KEY `COURSE_ID` (`COURSE_ID`),
+  ADD CONSTRAINT `session_course_id_ibfk_1` FOREIGN KEY (`COURSE_ID`) REFERENCES `COURSE`(`COURSE_ID`);
+
+ALTER TABLE `candidate`
+  MODIFY `CAND_ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+
+ALTER TABLE `company`
+  MODIFY `COMP_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE `job_history`
+  MODIFY `JOB_HIST_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE `opening`
+  MODIFY `OPENING_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE `placement`
+  MODIFY `PLACEMENT_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE `qualification`
+  MODIFY `QUAL_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+ALTER TABLE `candidate_qualifications`
+  ADD CONSTRAINT `candidate_qualifications_ibfk_1` FOREIGN KEY (`QUAL_ID`) REFERENCES `qualification` (`QUAL_ID`),
+  ADD CONSTRAINT `candidate_qualifications_ibfk_2` FOREIGN KEY (`CAND_ID`) REFERENCES `candidate` (`CAND_ID`);
+
+ALTER TABLE `course`
+  ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`QUAL_ID`) REFERENCES `qualification` (`QUAL_ID`);
+
+ALTER TABLE `job_history`
+  ADD CONSTRAINT `job_history_ibfk_1` FOREIGN KEY (`CAND_ID`) REFERENCES `candidate` (`CAND_ID`);
+ 
+ALTER TABLE `opening`
+  ADD CONSTRAINT `opening_ibfk_1` FOREIGN KEY (`COMP_ID`) REFERENCES `company` (`COMP_ID`),
+  ADD CONSTRAINT `opening_ibfk_2` FOREIGN KEY (`QUAL_ID`) REFERENCES `qualification` (`QUAL_ID`);
+
+ALTER TABLE `placement`
+  ADD CONSTRAINT `placement_ibfk_1` FOREIGN KEY (`OPENING_ID`) REFERENCES `opening` (`OPENING_ID`),
+  ADD CONSTRAINT `placement_ibfk_2` FOREIGN KEY (`CAND_ID`) REFERENCES `candidate` (`CAND_ID`);
+
+ALTER TABLE `session`
+  ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`COURSE_ID`) REFERENCES `course` (`COURSE_ID`);
+ 
+ALTER TABLE `enrollment`
+  ADD CONSTRAINT `enrollment_session_id_ibfk_1` FOREIGN KEY (`SESSION_ID`) REFERENCES `session` (`SESSION_ID`),
+  ADD CONSTRAINT `enrollment_cand_id_ibfk_1` FOREIGN KEY (`CAND_ID`) REFERENCES `candidate` (`CAND_ID`);
+ 
+COMMIT;
